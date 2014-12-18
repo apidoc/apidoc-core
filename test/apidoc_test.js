@@ -1,45 +1,53 @@
-/*jshint unused:false*/
+/*jshint unused:false, expr:true */
 
 /**
  * Test: apiDoc full parse
  */
 
 // node modules
-var should = require('should');
-var fs     = require('fs');
-var path   = require('path');
-var apidoc = require('../lib/index');
-
-
-function log() {
-    // can add an emitter here and capture it in the tests with chai-spies
-}
-
-var logger = {
-    debug  : log,
-    verbose: log,
-    info   : log,
-    warn   : log,
-    error  : log,
-};
-
-var marked = {
-    gfm        : true,
-    tables     : true,
-    breaks     : false,
-    pedantic   : false,
-    sanitize   : false,
-    smartLists : false,
-    smartypants: false
-};
-
+var fs       = require('fs');
 var markdown = require('marked');
-markdown.setOptions(marked);
+var path     = require('path');
+var semver   = require('semver');
+var should   = require('should');
+
+var versions = require('apidoc-example').versions;
+
+// lib modules
+var apidoc = require('../lib/index');
 
 describe('apiDoc full parse', function() {
 
+    // get latest example for the used apidoc-spec
+    var latestExampleVersion = semver.maxSatisfying(versions, '~' + apidoc.SPECIFICATION_VERSION); // ~0.2.0 = >=0.2.0 <0.3.0
+
+    var exampleBasePath = 'node_modules/apidoc-example/' + latestExampleVersion;
+    var fixturePath = exampleBasePath + '/fixtures';
+
+    function log() {
+        // can add an emitter here and capture it in the tests with chai-spies
+    }
+
+    var logger = {
+        debug  : log,
+        verbose: log,
+        info   : log,
+        warn   : log,
+        error  : log,
+    };
+
+    markdown.setOptions({
+        gfm        : true,
+        tables     : true,
+        breaks     : false,
+        pedantic   : false,
+        sanitize   : false,
+        smartLists : false,
+        smartypants: false
+    });
+
     var fixtureFiles = [
-        { key: 'data', filename: 'api_data.json' },
+        { key: 'data'   , filename: 'api_data.json' },
         { key: 'project', filename: 'api_project.json' }
     ];
 
@@ -53,11 +61,18 @@ describe('apiDoc full parse', function() {
         done();
     });
 
+    // version found
+    it('should find latest example version', function(done) {
+        should(latestExampleVersion).be.ok;
+        done();
+    });
+
     // create
     it('should create example in memory', function(done) {
         var options = {
-            src: /*path.join(__dirname, './fixtures/example/')*/ './test/fixtures/example/'
+            src: exampleBasePath + '/src/'
         };
+
         var generator = {};
         var packageInfos = {
             'name': 'test',
@@ -67,11 +82,11 @@ describe('apiDoc full parse', function() {
             'sampleUrl': 'https://api.github.com/v1',
             'header': {
                 'title': 'My own header title',
-                'filename': 'header.md'
+                'content': '<h1 id=\"header-md-file\">Header .md File</h1>\n<p>Content of header.md file.</p>\n'
             },
             'footer': {
                 'title': 'My own footer title',
-                'filename': 'footer.md'
+                'content': '<h1 id=\"footer-md-file\">Footer .md File</h1>\n<p>Content of footer.md file.</p>\n'
             },
             'order': [
                 'Error',
@@ -94,11 +109,13 @@ describe('apiDoc full parse', function() {
     it('memory should compare to fixtures', function(done) {
         var timeRegExp = /\"time\"\:\s\"(.*)\"/g;
         var versionRegExp = /\"version\"\:\s\"(.*)\"/g;
+        var filenameRegExp = new RegExp('(?!"filename":\\s")(' + exampleBasePath + '/)', 'g');
+
         fixtureFiles.forEach(function(file) {
             var key = file.key;
-            var name = file.filename;
+            var name = fixturePath + '/' + file.filename;
 
-            var fixtureContent = fs.readFileSync('test/fixtures/' + name, 'utf8');
+            var fixtureContent = fs.readFileSync(name, 'utf8');
             var createdContent = api[key];
 
             // creation time remove (never equal)
@@ -109,15 +126,20 @@ describe('apiDoc full parse', function() {
             fixtureContent = fixtureContent.replace(versionRegExp, '');
             createdContent = createdContent.replace(versionRegExp, '');
 
+            // remove the base path
+            createdContent = createdContent.replace(filenameRegExp, '');
+
+            // split and compare each line
+            // TODO: compare objects not line by line
             var fixtureLines = fixtureContent.split(/\r\n/);
             var createdLines = createdContent.split(/\r\n/);
 
             if (fixtureLines.length !== createdLines.length)
-                throw new Error('File ./tmp/' + name + ' not equals to test/fixtures/' + name);
+                throw new Error(key + ' not equals to ' + name);
 
             for (var lineNumber = 0; lineNumber < fixtureLines.length; lineNumber += 1) {
                 if (fixtureLines[lineNumber] !== createdLines[lineNumber])
-                    throw new Error(key + ' not equals to test/fixtures/' + name + ' in line ' + (lineNumber + 1) +
+                    throw new Error(key + ' not equals to ' + name + ' in line ' + (lineNumber + 1) +
                         '\nfixture: ' + fixtureLines[lineNumber] +
                         '\ncreated: ' + createdLines[lineNumber]
                     );
