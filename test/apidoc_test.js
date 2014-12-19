@@ -19,7 +19,7 @@ var apidoc = require('../lib/index');
 describe('apiDoc full parse', function() {
 
     // get latest example for the used apidoc-spec
-    var latestExampleVersion = semver.maxSatisfying(versions, '~' + apidoc.SPECIFICATION_VERSION); // ~0.2.0 = >=0.2.0 <0.3.0
+    var latestExampleVersion = semver.maxSatisfying(versions, '~' + apidoc.getSpecificationVersion()); // ~0.2.0 = >=0.2.0 <0.3.0
 
     var exampleBasePath = 'node_modules/apidoc-example/' + latestExampleVersion;
     var fixturePath = exampleBasePath + '/fixtures';
@@ -69,12 +69,10 @@ describe('apiDoc full parse', function() {
 
     // create
     it('should create example in memory', function(done) {
-        var options = {
-            src: exampleBasePath + '/src/'
-        };
-
-        var generator = {};
-        var packageInfos = {
+        apidoc.setLogger(logger);
+        apidoc.setGeneratorInfos({});
+        apidoc.setMarkdownParser(markdown);
+        apidoc.setPackageInfos({
             'name': 'test',
             'version': '0.5.0',
             'description': 'RESTful web API Documentation Generator',
@@ -95,9 +93,11 @@ describe('apiDoc full parse', function() {
                 'NotExistingEntry',
                 'PostError'
             ]
-        };
+        });
 
-        api = apidoc.parse(options, logger, generator, packageInfos, markdown);
+        api = apidoc.parse({
+            src: exampleBasePath + '/src/'
+        });
 
         if (api === false)
             throw new Error('Parse failed.');
