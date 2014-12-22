@@ -1,6 +1,6 @@
 {
   "name": "apidoc-core",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Core parser library to generate apidoc result following the apidoc-spec",
   "author": "Peter Rottmann <rottmann@inveris.de>",
   "license": {
@@ -17,7 +17,7 @@
     "url": "https://github.com/apidoc/apidoc-core/issues"
   },
   "scripts": {
-    "test": "npm run jshint && mocha test/",
+    "test": "npm run jshint && mocha test/**/*_test.js",
     "jshint": "jshint lib/ test/"
   },
   "keywords": [
