@@ -9,5 +9,3 @@ Core parser library to generate apidoc result following the [apidoc-spec](https:
 If you are an end user, please proceed to [apidoc](https://github.com/apidoc/apidoc) or [apidoc-documentation](http://apidocjs.com).
 
 [Changelog](https://github.com/apidoc/apidoc/blob/master/CHANGELOG.md).
-
-The apidoc-core major and minor version represent the used apidoc-spec version.
