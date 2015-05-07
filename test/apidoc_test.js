@@ -88,7 +88,8 @@ describe('apiDoc full parse', function() {
                 'Define',
                 'PostTitleAndError',
                 'NotExistingEntry',
-                'PostError'
+                'PostError',
+                'GetParam'
             ]
         });
 
