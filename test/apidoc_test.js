@@ -129,8 +129,8 @@ describe('apiDoc full parse', function() {
 
             // split and compare each line
             // TODO: compare objects not line by line
-            var fixtureLines = fixtureContent.split(/\r\n/);
-            var createdLines = createdContent.split(/\r\n/);
+            var fixtureLines = fixtureContent.split(/\n/);
+            var createdLines = createdContent.split(/\n/);
 
 //            if (fixtureLines.length !== createdLines.length)
 //                throw new Error(key + ' not equals to ' + name);
