@@ -114,7 +114,7 @@ describe('apiDoc full parse', function() {
             var name = fixturePath + '/' + file.filename;
 
             var fixtureContent = fs.readFileSync(name, 'utf8');
-            var createdContent = api[key];
+            var createdContent = api[key] + '\n'; // add linebreak at the end
 
             // creation time remove (never equal)
             fixtureContent = fixtureContent.replace(timeRegExp, '');

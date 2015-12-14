@@ -33,17 +33,17 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "lodash": "~3.8.0",
-    "semver": "~4.3.4",
+    "lodash": "~3.10.1",
+    "semver": "~5.1.0",
     "wrench": "~1.5.8"
   },
   "devDependencies": {
     "apidoc-example": "*",
-    "jshint": "~2.7.0",
-    "markdown-it": "^4.2.1",
-    "mocha": "~2.2.4",
-    "npm-check-updates": "^1.5.1",
-    "should": "~6.0.1"
+    "jshint": "~2.9.1-rc1",
+    "markdown-it": "^5.0.2",
+    "mocha": "~2.3.4",
+    "npm-check-updates": "^2.5.4",
+    "should": "~8.0.1"
   },
   "jshintConfig": {
     "camelcase": true,
