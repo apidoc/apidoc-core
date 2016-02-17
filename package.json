@@ -1,6 +1,6 @@
 {
   "name": "apidoc-core",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Core parser library to generate apidoc result following the apidoc-spec",
   "author": "Peter Rottmann <rottmann@inveris.de>",
   "license": {
@@ -33,7 +33,7 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "lodash": "~4.3.0",
+    "lodash": "~4.5.0",
     "semver": "~5.1.0",
     "wrench": "~1.5.8"
   },
