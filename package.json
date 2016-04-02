@@ -33,7 +33,8 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "deref": "~0.6.3",
+    "deasync": "~0.1.4",
+    "json-schema-ref-parser": "~2.2.0",
     "lodash": "~4.5.0",
     "semver": "~5.1.0",
     "wrench": "~1.5.8"
