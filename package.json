@@ -33,6 +33,7 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
+    "glob": "~7.0.3",
     "lodash": "~4.5.0",
     "semver": "~5.1.0",
     "wrench": "~1.5.8"
