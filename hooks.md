@@ -1,6 +1,7 @@
 # apiDoc Hooks
 
 If you need a hook in apidoc-core please add your hook and provide a pull request.
+
 How to add a hook into apidoc-core view [source code](https://github.com/apidoc/apidoc-core/blob/20921efd32f95e7934333d633c56ff6f60722123/lib/parser.js#L454-L458).
 
 How to use hook in your plugin view (https://github.com/apidoc/apidoc-plugin-test/blob/master/index.js)
