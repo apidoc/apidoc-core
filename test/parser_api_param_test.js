@@ -43,6 +43,20 @@ describe('Parser: apiParam', function() {
             }
         },
         {
+            title: '$Simple fieldname only',
+            content: '$simple',
+            expected: {
+                group: 'Parameter',
+                type: undefined,
+                size: undefined,
+                allowedValues: undefined,
+                optional: false,
+                field: '$simple',
+                defaultValue: undefined,
+                description: ''
+            }
+        },
+        {
             title: 'All options, with optional defaultValue',
             content: ' ( MyGroup ) { \\Object\\String.uni-code_char[] { 1..10 } = \'abc\', \'def\' }  ' +
                      '[ \\MyClass\\field.user_first-name = \'John Doe\' ] Some description.',
