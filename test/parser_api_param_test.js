@@ -86,7 +86,7 @@ describe('Parser: apiParam', function() {
                 defaultValue: 'John_Doe',
                 description: 'Some description.'
             }
-        },
+        }
     ];
 
     // create
@@ -95,6 +95,31 @@ describe('Parser: apiParam', function() {
             var parsed = parser.parse(testCase.content);
             (parsed !== null).should.equal(true, 'Title: ' + testCase.title + ', Source: ' + testCase.content);
             parsed.should.eql(testCase.expected);
+        });
+        done();
+    });
+
+    it('case 2: should override allowed values from packageInfos', function(done) {
+        var packageInfos = {
+            "parameters": {
+                "\\MyClass\\field.user_first-name": {
+                    "allowedValues": [
+                        "my_value"
+                    ]
+                }
+            }
+        };
+        
+        var parsed = parser.parse(testCases[2].content, undefined, undefined, packageInfos);
+        parsed.should.eql({
+            group: 'MyGroup',
+            type: '\\Object\\String.uni-code_char[]',
+            size: '1..10',
+            allowedValues: [ 'my_value' ],
+            optional: true,
+            field: '\\MyClass\\field.user_first-name',
+            defaultValue: 'John Doe',
+            description: 'Some description.'
         });
         done();
     });
