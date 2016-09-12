@@ -45,14 +45,14 @@ describe('Parser: apiParam', function() {
         {
             title: 'All options, with optional defaultValue',
             content: ' ( MyGroup ) { \\Object\\String.uni-code_char[] { 1..10 } = \'abc\', \'def\' }  ' +
-                     '[ \\MyClass\\field.user_first-name = \'John Doe\' ] Some description.',
+                     '[ []\\MyClass\\field.user_first-name = \'John Doe\' ] Some description.',
             expected: {
                 group: 'MyGroup',
                 type: '\\Object\\String.uni-code_char[]',
                 size: '1..10',
                 allowedValues: [ '\'abc\'', '\'def\'' ],
                 optional: true,
-                field: '\\MyClass\\field.user_first-name',
+                field: '[]\\MyClass\\field.user_first-name',
                 defaultValue: 'John Doe',
                 description: 'Some description.'
             }
@@ -60,14 +60,14 @@ describe('Parser: apiParam', function() {
         {
             title: 'All options, without optional-marker',
             content: ' ( MyGroup ) { \\Object\\String.uni-code_char[] { 1..10 } = \'abc\', \'def\' }  ' +
-                     '\\MyClass\\field.user_first-name = \'John Doe\' Some description.',
+                     '[]\\MyClass\\field.user_first-name = \'John Doe\' Some description.',
             expected: {
                 group: 'MyGroup',
                 type: '\\Object\\String.uni-code_char[]',
                 size: '1..10',
                 allowedValues: [ '\'abc\'', '\'def\'' ],
                 optional: false,
-                field: '\\MyClass\\field.user_first-name',
+                field: '[]\\MyClass\\field.user_first-name',
                 defaultValue: 'John Doe',
                 description: 'Some description.'
             }
