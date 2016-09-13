@@ -99,12 +99,15 @@ describe('Parser: apiParam', function() {
         done();
     });
 
-    it('case 2: should override allowed values from packageInfos', function(done) {
+    it('case 2: should override allowed and default values from packageInfos', function(done) {
         var packageInfos = {
             "parameters": {
                 "\\MyClass\\field.user_first-name": {
                     "allowedValues": [
-                        "my_value"
+                        "my_allowed_value"
+                    ],
+                    "defaultValue": [
+                        "my_default_value"
                     ]
                 }
             }
@@ -115,10 +118,10 @@ describe('Parser: apiParam', function() {
             group: 'MyGroup',
             type: '\\Object\\String.uni-code_char[]',
             size: '1..10',
-            allowedValues: [ 'my_value' ],
+            allowedValues: [ 'my_allowed_value' ],
             optional: true,
             field: '\\MyClass\\field.user_first-name',
-            defaultValue: 'John Doe',
+            defaultValue: [ 'my_default_value' ],
             description: 'Some description.'
         });
         done();
