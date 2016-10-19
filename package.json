@@ -36,8 +36,7 @@
     "glob": "^7.0.3",
     "iconv-lite": "^0.4.13",
     "lodash": "~4.11.1",
-    "semver": "~5.1.0",
-    "wrench": "~1.5.9"
+    "semver": "~5.1.0"
   },
   "devDependencies": {
     "apidoc-example": "*",
