@@ -43,6 +43,20 @@ describe('Parser: apiParam', function() {
             }
         },
         {
+            title: 'Type, Fieldname, Description',
+            content: '{String|String[]} name The users name.',
+            expected: {
+                group: 'Parameter',
+                type: 'String|String[]',
+                size: undefined,
+                allowedValues: undefined,
+                optional: false,
+                field: 'name',
+                defaultValue: undefined,
+                description: 'The users name.'
+            }
+        },
+        {
             title: 'All options, with optional defaultValue',
             content: ' ( MyGroup ) { \\Object\\String.uni-code_char[] { 1..10 } = \'abc\', \'def\' }  ' +
                      '[ \\MyClass\\field.user_first-name = \'John Doe\' ] Some description.',
