@@ -35,7 +35,8 @@
     "iconv-lite": "^0.4.17",
     "klaw-sync": "^2.1.0",
     "lodash": "~4.17.4",
-    "semver": "~5.3.0"
+    "semver": "~5.3.0",
+    "node-html-encoder": "^0.0.2"
   },
   "devDependencies": {
     "apidoc-example": "*",
