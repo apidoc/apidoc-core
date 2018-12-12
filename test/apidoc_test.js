@@ -95,7 +95,8 @@ describe('apiDoc full parse', function() {
 
         api = apidoc.parse({
             src: exampleBasePath + '/src/',
-            lineEnding: '\n'
+            lineEnding: '\n',
+            copyDefinitions: true
         });
 
         if (api === false)
