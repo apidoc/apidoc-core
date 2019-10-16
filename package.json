@@ -30,12 +30,12 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "fs-extra": "^3.0.1",
-    "glob": "^7.1.1",
-    "iconv-lite": "^0.4.17",
-    "klaw-sync": "^2.1.0",
-    "lodash": "~4.17.4",
-    "semver": "~5.3.0"
+    "fs-extra": "^8.1.0",
+    "glob": "^7.1.4",
+    "iconv-lite": "^0.5.0",
+    "klaw-sync": "^6.0.0",
+    "lodash": "~4.17.15",
+    "semver": "~6.3.0"
   },
   "devDependencies": {
     "apidoc-example": "*",
