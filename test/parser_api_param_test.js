@@ -43,6 +43,20 @@ describe('Parser: apiParam', function() {
             }
         },
         {
+            title: 'Type, Fieldname, Description',
+            content: '{String|String[]} name The users name.',
+            expected: {
+                group: 'Parameter',
+                type: 'String|String[]',
+                size: undefined,
+                allowedValues: undefined,
+                optional: false,
+                field: 'name',
+                defaultValue: undefined,
+                description: 'The users name.'
+            }
+        },
+        {
             title: '$Simple fieldname only',
             content: '$simple',
             expected: {
