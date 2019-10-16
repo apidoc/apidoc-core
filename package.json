@@ -15,8 +15,7 @@
   },
   "scripts": {
     "test": "npm run jshint && mocha test/**/*_test.js",
-    "jshint": "jshint lib/ test/",
-    "check-updates": "npm-check-updates"
+    "jshint": "jshint lib/ test/"
   },
   "keywords": [
     "api",
@@ -39,11 +38,10 @@
   },
   "devDependencies": {
     "apidoc-example": "*",
-    "jshint": "~2.9.4",
-    "markdown-it": "^8.3.1",
-    "mocha": "~3.4.1",
-    "npm-check-updates": "^2.11.1",
-    "should": "~11.2.1"
+    "jshint": "~2.10.2",
+    "markdown-it": "^10.0.0",
+    "mocha": "~6.2.1",
+    "should": "~13.2.3"
   },
   "jshintConfig": {
     "camelcase": true,
