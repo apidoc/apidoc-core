@@ -1,6 +1,6 @@
 {
   "name": "apidoc-core",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Core parser library to generate apidoc result following the apidoc-spec",
   "author": "Peter Rottmann <rottmann@inveris.de>",
   "license": "MIT",
@@ -30,20 +30,20 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "fs-extra": "^2.0.0",
+    "fs-extra": "^3.0.1",
     "glob": "^7.1.1",
-    "iconv-lite": "^0.4.15",
-    "klaw-sync": "^1.0.2",
+    "iconv-lite": "^0.4.17",
+    "klaw-sync": "^2.1.0",
     "lodash": "~4.17.4",
     "semver": "~5.3.0"
   },
   "devDependencies": {
     "apidoc-example": "*",
     "jshint": "~2.9.4",
-    "markdown-it": "^8.2.2",
-    "mocha": "~3.2.0",
-    "npm-check-updates": "^2.8.9",
-    "should": "~11.1.2"
+    "markdown-it": "^8.3.1",
+    "mocha": "~3.4.1",
+    "npm-check-updates": "^2.11.1",
+    "should": "~11.2.1"
   },
   "jshintConfig": {
     "camelcase": true,
