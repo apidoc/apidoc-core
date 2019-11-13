@@ -1,6 +1,6 @@
 # Changelog for apidoc-core
 
-## Unreleased
+## 0.10.0
 
 ### Added
 
