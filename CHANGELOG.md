@@ -1,5 +1,11 @@
 # Changelog for apidoc-core
 
+## 0.11.0
+
+### Added
+
+* Allow filtering by tag (PR #91 by @omaretna)
+
 ## 0.10.0
 
 ### Added
