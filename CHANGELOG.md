@@ -6,6 +6,10 @@
 
 * Allow filtering by tag (PR #91 by @omaretna)
 
+### Fixed
+
+* Fix apiprivate parser issue (PR #81 by @jason-gao)
+
 ## 0.10.0
 
 ### Added
