@@ -37,6 +37,7 @@
     "semver": "~6.3.0"
   },
   "devDependencies": {
+    "apidoc-example": "^0.2.1",
     "jshint": "~2.10.2",
     "markdown-it": "^10.0.0",
     "mocha": "~6.2.1",
