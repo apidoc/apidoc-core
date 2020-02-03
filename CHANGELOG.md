@@ -1,5 +1,9 @@
 # Changelog for apidoc-core
 
+## 0.11.1
+
+* Correctly merge the dev branch
+
 ## 0.11.0
 
 ### Added
