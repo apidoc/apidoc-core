@@ -27,6 +27,9 @@ describe('Worker: apiUse', function() {
     var filenames = [ 'fileA', 'fileB', 'fileC' ];
 
     // TODO: Add 1.000 more possible cases ;-)
+    // the tree is build like
+    // root
+    // l
     var parsedFilesSimpleTest = [
         //file
         [
@@ -40,7 +43,6 @@ describe('Worker: apiUse', function() {
                     test: ['root']
                 },
                 expected: 'root',
-                index: 2
             },
             {
                 global: {
@@ -53,8 +55,122 @@ describe('Worker: apiUse', function() {
                 local: {
                     test: ['l']
                 },
-                index: 1,
                 expected: 'l'
+            }
+        ]
+    ];
+
+    // the tree is build like
+    // root
+    // l,    r
+    // ll,   rr
+    //       rrl, rrr
+    var parsedFilesRecursiveTest = [
+        //file
+        [
+            {
+                global: { },
+                local: {
+                    use: [ 
+                        { name: 'leaf_l' },
+                        { name: 'leaf_r' },
+                    ],
+                    name: 'root',
+                    test: ['root']
+                },
+                expected: 'root',
+            }
+        ], 
+        [
+            {
+                global: {
+                    define: {
+                        name: 'leaf_l',
+                        title: '',
+                        description: '',
+                    }
+                },
+                local: {
+                    test: ['l'],
+                    use: [ 
+                        { name: 'leaf_ll' }
+                    ],
+                },
+                expected: 'l'
+            },
+            {
+                global: {
+                    define: {
+                        name: 'leaf_rr',
+                        title: '',
+                        description: '',
+                    }
+                },
+                local: {
+                    test: ['rr'],
+                    use: [ 
+                        { name: 'leaf_rrr' },
+                        { name: 'leaf_rrl' }
+                    ],
+                },
+                expected: 'rr'
+            }
+        ],
+        [
+            {
+                global: {
+                    define: {
+                        name: 'leaf_ll',
+                        title: '',
+                        description: '',
+                    }
+                },
+                local: {
+                    test: ['ll']
+                },
+                expected: 'll'
+            },
+            {
+                global: {
+                    define: {
+                        name: 'leaf_r',
+                        title: '',
+                        description: '',
+                    }
+                },
+                local: {
+                    test: ['r'],
+                    use: [ 
+                        { name: 'leaf_rr' }
+                    ],
+                },
+                expected: 'r'
+            },
+            {
+                global: {
+                    define: {
+                        name: 'leaf_rrr',
+                        title: '',
+                        description: '',
+                    }
+                },
+                local: {
+                    test: ['rrr']
+                },
+                expected: 'rrr'
+            },
+            {
+                global: {
+                    define: {
+                        name: 'leaf_rrl',
+                        title: '',
+                        description: '',
+                    }
+                },
+                local: {
+                    test: ['rrl']
+                },
+                expected: 'rrl'
             }
         ]
     ];
@@ -67,7 +183,26 @@ describe('Worker: apiUse', function() {
         var rootBlock = parsedFilesSimpleTest[0][0];
         rootBlock.local.name.should.eql('root');
 
+        //check if the root block contains the expected value from every other block
         parsedFilesSimpleTest.forEach(function(parsedFile, parsedFileIndex) {
+            parsedFile.forEach(function(block) {
+                rootBlock.local.test.should.containEql(block.expected);
+            });
+        });
+        done();
+    });
+
+    it('case 2: recursive test', function(done) {
+        var preProcess = worker.preProcess(parsedFilesRecursiveTest, filenames, packageInfos);
+        worker.postProcess(parsedFilesRecursiveTest, filenames, preProcess, packageInfos);
+        
+        var rootBlock = parsedFilesRecursiveTest[0][0];
+        rootBlock.local.name.should.eql('root');
+
+        //console.log(rootBlock);
+
+        //check if the root block contains the expected value from every other block
+        parsedFilesRecursiveTest.forEach(function(parsedFile, parsedFileIndex) {
             parsedFile.forEach(function(block) {
                 rootBlock.local.test.should.containEql(block.expected);
             });
