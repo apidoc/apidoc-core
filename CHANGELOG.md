@@ -1,5 +1,11 @@
 # Changelog for apidoc-core
 
+## 0.12.0
+
+### Changed
+
+* Allow '#' and '@' in apiParam names (#102 by Fulvio Gentile)
+
 ## 0.11.1
 
 * Correctly merge the dev branch
