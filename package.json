@@ -29,19 +29,19 @@
     "node": ">= 0.10.0"
   },
   "dependencies": {
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
-    "iconv-lite": "^0.5.2",
+    "iconv-lite": "^0.6.2",
     "klaw-sync": "^6.0.0",
-    "lodash": "^4.17.19",
-    "semver": "~6.3.0"
+    "lodash": "^4.17.20",
+    "semver": "~7.3.2"
   },
   "devDependencies": {
-    "apidoc-example": "^0.2.1",
+    "apidoc-example": "^0.2.3",
     "deep-equal": "^2.0.3",
-    "jshint": "^2.10.3",
-    "markdown-it": "^10.0.0",
-    "mocha": "^6.2.3",
+    "jshint": "^2.12.0",
+    "markdown-it": "^11.0.0",
+    "mocha": "^8.1.1",
     "should": "~13.2.3"
   },
   "jshintConfig": {
