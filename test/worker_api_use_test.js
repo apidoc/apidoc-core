@@ -199,8 +199,6 @@ describe('Worker: apiUse', function() {
         var rootBlock = parsedFilesRecursiveTest[0][0];
         rootBlock.local.name.should.eql('root');
 
-        //console.log(rootBlock);
-
         //check if the root block contains the expected value from every other block
         parsedFilesRecursiveTest.forEach(function(parsedFile, parsedFileIndex) {
             parsedFile.forEach(function(block) {
