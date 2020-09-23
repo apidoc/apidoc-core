@@ -1,5 +1,11 @@
 # Changelog for apidoc-core
 
+## 0.13.0
+
+### Added
+
+* Enable the use of an apiUse block in an apiDefine block (#99 by tommy87)
+
 ## 0.12.0
 
 ### Changed
