@@ -1,5 +1,5 @@
 name: action-validate
-on: [push]
+on: [push, pull_request]
 jobs:
   run-test:
     runs-on: ubuntu-latest
