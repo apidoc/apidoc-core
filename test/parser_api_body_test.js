@@ -10,7 +10,7 @@ var should = require('should');
 // lib modules
 var parser = require('../lib/parsers/api_body');
 
-describe('Parser: apiParam', function() {
+describe('Parser: apiBody', function() {
 
     // TODO: Add 1.000 more possible cases ;-)
     var testCases = [
