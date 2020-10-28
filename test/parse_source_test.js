@@ -5,7 +5,6 @@ var deepEqual = require('deep-equal');
 var apidoc = require("../lib/index");
 
 function log() {
-//   console.log(arguments);
 }
 
 var logger = {
