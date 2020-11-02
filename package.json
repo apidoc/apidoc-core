@@ -15,7 +15,8 @@
   },
   "scripts": {
     "test": "npm run jshint && mocha test/**/*_test.js",
-    "jshint": "jshint lib/ test/"
+    "jshint": "jshint lib/ test/",
+    "eslint": "eslint lib/ test/"
   },
   "keywords": [
     "api",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "apidoc-example": "^0.2.3",
     "deep-equal": "^2.0.3",
+    "eslint": "^7.12.1",
     "jshint": "^2.12.0",
     "markdown-it": "^11.0.0",
     "mocha": "^8.1.1",

@@ -15,3 +15,10 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm i
       - run: npm run jshint --verbose
+  run-eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm i
+      - run: npm run eslint
