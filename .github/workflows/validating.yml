@@ -7,18 +7,18 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm i
-      - run: npx mocha --colors test/**/*_test.js
+      - run: npm run unit-tests
   run-jshint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm i
-      - run: npm run jshint --verbose
+      - run: npm run jshint-check
   run-eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm i
-      - run: npm run eslint
+      - run: npm run eslint-check
