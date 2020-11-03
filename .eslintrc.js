@@ -30,7 +30,7 @@ module.exports = {
             "error",
             "always"
         ],
-        "no-useless-escape": "warn",
+        "no-useless-escape": "error",
         "no-empty": "warn",
         "no-unused-vars": [
             "error",

@@ -6,7 +6,7 @@
 
 // node modules
 var fs       = require('fs');
-var path     = require('path');
+//var path     = require('path');
 var semver   = require('semver');
 var should   = require('should');
 var Markdown = require('markdown-it');
@@ -106,8 +106,8 @@ describe('apiDoc full parse', function() {
 
     // compare
     it('memory should compare to fixtures', function(done) {
-        var timeRegExp = /\"time\"\:\s\"(.*)\"/g;
-        var versionRegExp = /\"version\"\:\s\"(.*)\"/g;
+        var timeRegExp = /"time":\s"(.*)"/g;
+        var versionRegExp = /"version":\s"(.*)"/g;
         var filenameRegExp = new RegExp('(?!"filename":\\s")(' + exampleBasePath + '/)', 'g');
 
         fixtureFiles.forEach(function(file) {
