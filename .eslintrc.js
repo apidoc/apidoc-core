@@ -3,13 +3,14 @@ module.exports = {
     "env": {
         "browser": false,
         "node": true,
+        "mocha": true,
         "es6": false,
         "es2017": false,
         "es2020": false,
         "es2021": false
     },
     "globals": {
-        "require": true,
+
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -30,6 +31,12 @@ module.exports = {
             "always"
         ],
         "no-useless-escape": "warn",
-        "no-empty": "warn"
+        "no-empty": "warn",
+        "no-unused-vars": [
+            "error",
+            {
+                "varsIgnorePattern": "should|expect"
+            }
+        ]
     }
 };
