@@ -1,4 +1,5 @@
 //https://eslint.org/docs/user-guide/configuring
+//https://eslint.org/docs/rules/
 module.exports = {
     "env": {
         "browser": false,
@@ -30,8 +31,6 @@ module.exports = {
             "error",
             "always"
         ],
-        "no-useless-escape": "error",
-        "no-empty": "warn",
         "no-unused-vars": [
             "error",
             {
