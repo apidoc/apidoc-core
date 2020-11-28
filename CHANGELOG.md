@@ -1,5 +1,13 @@
 # Changelog for apidoc-core
 
+## 0.14.0
+
+### Added
+
+* Implement apiBody and apiQuery tags by @SWheeler17 #104
+* Expose parseSource function by @woodgear #109
+* Add GitHub actions by @tommy87 #107
+
 ## 0.13.0
 
 ### Added

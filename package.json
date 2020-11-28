@@ -1,6 +1,6 @@
 {
   "name": "apidoc-core",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Core parser library to generate apidoc result following the apidoc-spec",
   "author": "Peter Rottmann <rottmann@inveris.de>",
   "license": "MIT",
