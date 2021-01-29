@@ -184,7 +184,7 @@ describe('Worker: apiUse', function() {
         rootBlock.local.name.should.eql('root');
 
         //check if the root block contains the expected value from every other block
-        parsedFilesSimpleTest.forEach(function(parsedFile, parsedFileIndex) {
+        parsedFilesSimpleTest.forEach(function(parsedFile) {
             parsedFile.forEach(function(block) {
                 rootBlock.local.test.should.containEql(block.expected);
             });
@@ -200,7 +200,7 @@ describe('Worker: apiUse', function() {
         rootBlock.local.name.should.eql('root');
 
         //check if the root block contains the expected value from every other block
-        parsedFilesRecursiveTest.forEach(function(parsedFile, parsedFileIndex) {
+        parsedFilesRecursiveTest.forEach(function(parsedFile) {
             parsedFile.forEach(function(block) {
                 rootBlock.local.test.should.containEql(block.expected);
             });

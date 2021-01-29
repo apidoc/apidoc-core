@@ -14,8 +14,11 @@
     "url": "https://github.com/apidoc/apidoc-core/issues"
   },
   "scripts": {
-    "test": "npm run jshint && mocha test/**/*_test.js",
-    "jshint": "jshint lib/ test/"
+    "test-all": "npm run jshint-check && npm run eslint-check && npm run unit-tests",
+    "unit-tests": "mocha test/**/*_test.js",
+    "jshint-check": "jshint lib/ test/",
+    "eslint-check": "eslint lib/ test/",
+    "fix-layout": "eslint --fix --fix-type [problem,layout] lib/ test/"
   },
   "keywords": [
     "api",
@@ -39,6 +42,7 @@
   "devDependencies": {
     "apidoc-example": "^0.2.3",
     "deep-equal": "^2.0.3",
+    "eslint": "^7.12.1",
     "jshint": "^2.12.0",
     "markdown-it": "^11.0.0",
     "mocha": "^8.1.1",
