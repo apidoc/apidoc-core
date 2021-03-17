@@ -1,5 +1,10 @@
 # Changelog for apidoc-core
 
+## 0.15.0
+
+### Fixed
+* Fix incorrect return type in @apiPrivate parser (PR #112 from nomoon)
+
 ## 0.14.0
 
 ### Added
