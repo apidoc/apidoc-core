@@ -1,5 +1,10 @@
 # Changelog for apidoc-core
 
+## 0.15.1
+* Use str.trim() instead of own regex vulnerable to ReDOS.
+Note that this vulnerability is not impacting this project as an attacker would need to control your source code from which you generate the documentation.
+Done in #120 by @ready-research.
+
 ## 0.15.0
 
 ### Fixed
